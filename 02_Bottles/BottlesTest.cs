@@ -16,7 +16,7 @@ namespace _02_Bottles
         public void CountDownFromOne()
         {
             Song song = new Song();
-            Assert.AreEqual("1 bottle of beer on the wall."
+            Assert.AreEqual(" 1 bottle of beer on the wall."
                + " 1 bottle of beer."
                + " Take one down and pass it around."
                + " No more bottles of beer on the wall.", song.CountBottles(1));
@@ -25,7 +25,7 @@ namespace _02_Bottles
         public void CountDownFromTwo()
         {
             Song song = new Song();
-            Assert.AreEqual("2 bottles of beer on the wall."
+            Assert.AreEqual(" 2 bottles of beer on the wall."
                 + " 2 bottles of beer."
                 + " Take one down and pass it around."
                 + " 1 bottle of beer on the wall."
@@ -38,7 +38,7 @@ namespace _02_Bottles
         public void CountDownFromThree()
         {
             Song song = new Song();
-            Assert.AreEqual("3 bottles of beer on the wall."
+            Assert.AreEqual(" 3 bottles of beer on the wall."
                 + " 3 bottles of beer."
                 + " Take one down and pass it around."
                 + " 2 bottles of beer on the wall."

@@ -4,42 +4,31 @@ namespace _02_Bottles
 {
     internal class Song
     {
+        public string bottleString, mySong;
+        public string noBottles = " No more bottles of beer on the wall.";
+        public string numberBottles = " of beer on the wall.";
+        public string repeatBottles = " of beer. Take one down and pass it around.";
+
         public Song()
         {
         }
 
         internal string CountBottles(int bottles)
         {
-            string mySong = "";
-            for (int i = bottles; i > -1; i--)
-            {
-                if (i == 0)
-                {
-                    mySong = mySong + " No more bottles of beer on the wall.";
-                }
-                else if (i == 1)
-                {
-                    mySong = mySong + "1 bottle of beer on the wall. 1 bottle of beer." +
-                    " Take one down and pass it around.";
-                    bottles = bottles--;
-                }
-                else if (i == 2)
-                {
-                    mySong = mySong + bottles + " bottles of beer on the wall. "
-                + bottles + " bottles of beer." + " Take one down and pass it around.";
-                    bottles = bottles- 1;
-                    mySong = mySong + " " + bottles + " bottle of beer on the wall. ";
-                }
-                else
-                {
-                    mySong = mySong + bottles + " bottles of beer on the wall. "
-                + bottles + " bottles of beer." + " Take one down and pass it around.";
-                    bottles = bottles- 1;
-                    mySong = mySong + " " + bottles + " bottles of beer on the wall. ";
-                }
-            }
-            return mySong;
+            if (bottles == 0) return mySong + noBottles;
+            bottleString = pluralDecider(bottles);
+            mySong = mySong + bottleString + numberBottles + bottleString + repeatBottles;
+            bottleString = pluralDecider(bottles- 1);
+            if (bottles - 1 == 0) return CountBottles(bottles - 1);
+            mySong = mySong + bottleString + numberBottles;
+            return CountBottles(bottles-1);
         }
-         
+        internal string pluralDecider(int bottles)
+        {
+            string pluralized;
+            if (bottles == 1) pluralized = " 1 bottle";
+            else pluralized = " " + bottles + " bottles";
+            return pluralized;
+        } 
     }
 }
